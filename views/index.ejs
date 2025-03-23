@@ -1,11 +1,51 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
-  <head>
-    <title><%= title %></title>
+<head>
+    <meta charset="UTF-8" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+    <title>Social Circles</title>
+</head>
+<body>
+    <video autoplay muted loop id = "homeVideo">
+        <source src= "/assets/circles_video.mp4">
+    </video>
+    <div class = "main-page">
+   <h1> welcome to social circles </h1> 
+   <button class = "button">See Leaderboard</button>
+   <button class = "button" id= "loginBtn">Play Social Circles</button>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class= "close">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <h2>Register</h2>
+            <form>
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="email" required>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+   
+
+</body>
 </html>
+

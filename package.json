@@ -13,5 +13,17 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "mysql2": "^3.13.0"
-  }
+  },
+  "description": "A semester long project for Trinity University's Software Engineering Course",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilianpadilla/SocialCircles.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilianpadilla/SocialCircles/issues"
+  },
+  "homepage": "https://github.com/lilianpadilla/SocialCircles#readme"
 }
