@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 <head>
     <meta charset="UTF-8" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -8,42 +7,23 @@
     <title>Social Circles</title>
 </head>
 <body>
-    <video autoplay muted loop id = "homeVideo">
-        <source src= "/assets/circles_video.mp4">
+    <video autoplay muted loop id="homeVideo">
+        <source src="/assets/circles_video.mp4">
     </video>
-    <div class = "main-page">
-   <h1> welcome to social circles </h1> 
-   <button class = "button">See Leaderboard</button>
-   <button class = "button" id= "loginBtn">Play Social Circles</button>
+
+    <div class="main-page">
+        <h1>Welcome to Social Circles</h1> 
+
+        <% if (user) { %>
+            <h2>Welcome, <%= user.username %>!</h2>
+            <a href="/game" class="button">Play Social Circles</a>
+            <a href="/logout" class="button">Logout</a>
+        <% } else { %>
+            <a href="/login" class="button">Login</a>
+            <a href="/register" class="button">Register</a>
+        <% } %>        
+
+        <a href="/leaderboard" class="button">See Leaderboard</a>
     </div>
-
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <h2>Login</h2>
-            <form>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit" class="login-btn">Login</button>
-            </form>
-            <h2>Register</h2>
-            <form>
-                <label for="email">E-mail</label>
-                <input type="text" id="email" name="email" required>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit" class="login-btn">Register</button>
-            </form>
-        </div>
-    </div>
-   
-
 </body>
 </html>

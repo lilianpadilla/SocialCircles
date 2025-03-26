@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <video autoplay muted loop id="homeVideo">
+        <source src="/assets/circles_video.mp4">
+    </video>
+
+    <h1>Register for Social Circles</h1>
+
+    <div class="auth-container">
+        <form action="/register" method="POST" class="auth-form">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="auth-button">Register</button>
+        </form>
+    </div> 
+
+    <img src="/assets/registerGIF.gif" alt="Animation" class="corner-gif" loop>
+</body>
+</html>
