@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Descriptions</title>
+    <link rel="stylesheet" href="/stylesheets/descriptionsstyle.css">
+</head>
+<body>
+    <nav class="navbar">
+        <button class="menu-btn">&#9776;</button>
+        <p>Social Circles</p>
+        <button class="profile-btn">&#128100;</button>
+    </nav>
+
+    <div class="descriptions">
+        <% characters.forEach(character => { %>
+            <div class="charname">
+                <span>&#128100;</span>
+                <p><strong><%= character.CharacterName %></strong></p>
+                <p><%= character.personality %></p>
+            </div>
+        <% }); %>
+    </div>
+
+    <footer class="footer">Footer</footer>
+</body>
+</html>
