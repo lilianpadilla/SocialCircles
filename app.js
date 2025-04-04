@@ -29,11 +29,13 @@ app.use((req, res, next) => {
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
+const leaderboardRouter = require('./routes/leaderboard');
 const usersRouter = require('./routes/users');
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
+app.use('/leaderboard', leaderboardRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
