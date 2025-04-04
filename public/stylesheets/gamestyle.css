@@ -1,0 +1,216 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+   /* background-color: #FFEFD5; */
+    background: linear-gradient(to bottom, #FFEFD5,#ffc9b1 );
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #7B68EE;
+}
+
+p {
+    text-shadow: 6px 6px 12px #2c334b;
+    color: white;
+}
+
+/***************************/
+/* Menu and Profile Button Customizations */
+
+.menu-btn, .profile-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.menu-btn a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+/*****************************/
+/* Exit Button Functionality */
+
+.exit-btn {
+    margin-left: auto;
+    font-size: 15px;
+    background: #d3de6b;
+    color: black;
+    cursor: pointer;   
+    height: 45px;
+    width: 100px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+
+/* Possibly change background color */
+.modal-content {
+    background: linear-gradient(to bottom, #7b94ed,#7b68ee );
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.modal-content button {
+    margin: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #f35c96; 
+    color: white;
+}
+.modal-content button:hover {
+    background-color: #b1e663;
+    color: black;
+    transition-duration: 0.3s;
+}
+
+#exit-msg {
+    color: white;
+    font-size: 30px; 
+}
+
+.leaderboard-panel {
+    position: absolute;
+    top: 90px;
+    left: 50px;
+    background: #b1e663;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.user-input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+input {
+    flex: 1;
+    padding: 5px;
+}
+.leaderboard-btn {
+    background: rgb(231, 227, 107); 
+    color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.leaderboard-btn:hover {
+    background: rgb(153, 150, 65);
+}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh; /* was 70vh */ 
+    position: relative;
+}
+.social-circle {
+    width: 200px;
+    height: 200px;
+    background: #DDA0DD;
+    border-radius: 50%;
+    border: 3px solid #ae6bae;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: absolute;
+    transition: .3s;
+    cursor: pointer;
+    font-size: 17px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+.social-circle:hover{
+    background-color: #ae6bae;
+}
+#circle1 { top: 20%; left: 46%;  }
+#circle2 { top: 50%; left: 26%; }
+#circle3 { top: 50%; left: 66%; }
+
+/***************************/
+/* User Interaction Screen */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-content {
+    background: rgb(255, 233, 220);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.action-button {
+    background-color: #6bafe6;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.action-button:hover {
+    background-color: #408fd0;
+}
+
+.close-button:hover {
+    background-color:#bf2b64;
+}
+
+.close-button {
+    background-color: #f35c96;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer {
+    background: #FA8072;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

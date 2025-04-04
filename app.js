@@ -2,6 +2,7 @@ var express = require('express');
 var session = require('express-session');
 var path = require('path');
 var app = express();
+var createError = require('http-errors');
 
 // View engine setup
 app.set('view engine', 'ejs');
@@ -31,12 +32,14 @@ const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const usersRouter = require('./routes/users');
 const descriptionsRouter = require('./routes/descriptions');
+const gameRouter = require('./routes/game');
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/users', usersRouter);
 app.use('/descriptions', descriptionsRouter);
+app.use('/game', gameRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -91,15 +91,3 @@ VALUES ('Shea', '123456789', 'Shea123@email.com', 'Account');
 INSERT INTO Characters (CharacterName, personality, happinessScore)
 VALUES ('Lili', 'Loyal, Friendly', 60);
 
--- Log a Game Interaction
-INSERT INTO Game_Interactions (userId, characterId, decision, happinessChange)
-VALUES (1, 1, 'Gave Lili a Gift', +10);
-
--- Update Leaderboard Score
-UPDATE Leaderboard
-SET total_score = total_score + 10
-WHERE user_id = 1;
-
--- Ban a User
-INSERT INTO Admin_Actions (adminId, userId, actionType, actionDetails)
-VALUES (3, 1, 'Ban', 'Cheating');

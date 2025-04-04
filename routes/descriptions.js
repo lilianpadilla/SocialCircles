@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../database/connection'); 
 
-router.get("/descriptions", (req, res) => {
+router.get("/", (req, res) => {
     const sql = "SELECT CharacterName, personality FROM Characters"; 
 
     db.query(sql, (err, results) => {

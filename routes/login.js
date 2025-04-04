@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
 
         const isMatch = await bcrypt.compare(password, results[0].userPass);
         if (!isMatch) {
-            return res.status(401).send('Incorrect password.');
+            return res.status(401).send('Incorrect password.'); // we may want to add a page or pop up that says incorrect password
         }
 
         req.session.user = { userID: results[0].userID, username: results[0].username };
