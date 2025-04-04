@@ -9,6 +9,7 @@ router.post('/', (req, res) => {
     const { username, password } = req.body;
 
     const sql = `SELECT * FROM Users WHERE username = ?`;
+    
     //validation
     db.query(sql, [username], async (err, results) => {
         if (err || results.length === 0) {

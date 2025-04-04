@@ -90,4 +90,3 @@ VALUES ('Shea', '123456789', 'Shea123@email.com', 'Account');
 -- Character Data
 INSERT INTO Characters (CharacterName, personality, happinessScore)
 VALUES ('Lili', 'Loyal, Friendly', 60);
-
