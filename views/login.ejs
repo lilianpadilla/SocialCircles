@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <video autoplay muted loop id="homeVideo">
+        <source src="/assets/circles_video.mp4">
+    </video>
+
+    <h1>Login to Social Circles</h1>
+
+    <div class="auth-container">
+        <form action="/login" method="POST" class="auth-form">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="auth-button">Login</button>
+        </form>
+
+        <a href="/register" class="auth-link">Don't have an account? Register here!</a>
+    </div>
+</body>
+</html>

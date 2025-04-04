@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>game</title>
+        <link rel="stylesheet" href="/stylesheets/gamestyle.css"> 
+       
+    </head>
+    <body>
+        <nav class="navbar">
+            <button class="menu-btn">&#9776;</button>
+            <p>Social Circles</p>
+            <button class = "exit-btn">Exit Game</button>
+            <button class= "profile-btn">&#128100;</button>
+        </nav>
+
+        <!-- Fix class and id names so it's not confusing-->
+
+        <div id= "exitModal" class = "modal">
+            <div class = "modal-content">
+                <p id = "exit-msg">Are you sure you want to exit?</p>
+                <button id="confirmExit">Yes, return to login</button>
+                <button id="cancelExit">Cancel</button>
+            </div>
+        </div>
+
+        
+        <div class="leaderboard-panel">
+            
+                <div class="user-input">
+                    <span>&#128081;</span> <!--number 1 leaderboard, looked up the html entity for icons-->
+                    <input type="text">
+                    <button>+</button>
+                </div>
+                <div class="user-input">
+                    <span>&#128100;</span>
+                    <input type="text" >
+                    <button>+</button>
+                </div>
+                <div class="user-input">
+                    <span>&#128100;</span>
+                    <input type="text">
+                    <button>+</button>
+                </div>
+            
+                <button id="leaderboard-btn" class="leaderboard-btn">View Leaderboard</button>
+                <button id="descriptions-btn" class="descriptions-btn">View Character Descriptions</button>
+                
+           <!-- <a href="/leaderboard" class="leaderboard-btn">Leaderboard</a>
+            <a href="/descriptions" class="descriptions-btn">View Character Descriptions</a>--> <!-- Lilian added this -->
+        </div>
+        
+
+        
+        <main class="content"> <!--just hard coded to start with, will add the shuffled characters soon-->
+            <button class="social-circle" id="circle1">Social Circle #1</button>
+            <button class="social-circle" id="circle2">Social Circle #2</button>
+            <button class="social-circle" id="circle3">Social Circle #3</button>
+        </main>
+
+        <div id="actionOverlay" class = "overlay">
+            <div class = "overlay-content">
+            <button class = "action-button">Give Compliment</button>
+            <button class = "action-button">Offer Help</button>
+            <button class = "action-button">Invite to Event</button>
+            <button id = "closeOverlay" class = "close-button">Close</button>
+        </div>
+     </div>
+        
+        <footer class="footer"> Your Happiness Score: </footer>
+        <script src="/scripts/game.js"></script>
+    </body>
+</body>
+</html>

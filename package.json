@@ -6,12 +6,27 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "express-session": "^1.18.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "mysql2": "^3.13.0"
-  }
+    "mysql2": "^3.14.0"
+  },
+  "description": "A semester long project for Trinity University's Software Engineering Course",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilianpadilla/SocialCircles.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilianpadilla/SocialCircles/issues"
+  },
+  "homepage": "https://github.com/lilianpadilla/SocialCircles#readme",
+  "keywords": []
 }
