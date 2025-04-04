@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     confirmExit.addEventListener("click", () => {
-        window.location.href = "homepage.html";
+        window.location.href = "/login";
     });
     
     cancelExit.addEventListener("click", () => {
