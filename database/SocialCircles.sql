@@ -8,7 +8,7 @@ CREATE TABLE Users (
     userPass VARCHAR(200) NOT NULL,
     email VARCHAR(100) UNIQUE,
     status ENUM('Active', 'Banned') DEFAULT 'Active',
-    UserRole ENUM('Account', 'Guest', 'Admin') NOT NULL, -- use enum to make a set of predefined values
+    UserRole ENUM('Account', 'Guest', 'Admin') NOT NULL, -- use enum to make a set of predefined values, note from lili: we decided that guests cannot play
     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -21,24 +21,48 @@ CREATE TABLE Profiles (
     FOREIGN KEY (userId) REFERENCES Users(userId) ON DELETE CASCADE
 );
 
--- CHARACTERS (The ame characters with preferences)
+
+-- lili notes: i updated this table with how the actions affect them
 CREATE TABLE Characters (
     characterId INT AUTO_INCREMENT PRIMARY KEY,
     CharacterName VARCHAR(50) NOT NULL,
     personality TEXT,
-    happinessScore INT DEFAULT 0
+    compliment INT NOT NULL, -- how much they like compliments
+    help INT NOT NULL,       -- how much they like help
+    invite INT NOT NULL      -- how much they like invitations
+
 );
 
 -- GAME INTERACTIONS ( user decisions -> outcomes)
-CREATE TABLE GameInteractions (
-    interactionId INT AUTO_INCREMENT PRIMARY KEY,
+-- CREATE TABLE GameInteractions (
+--     interactionId INT AUTO_INCREMENT PRIMARY KEY,
+--     userId INT NOT NULL,
+--     characterId INT NOT NULL,
+--     decision TEXT NOT NULL,
+--     -- happinessChange INT NOT NULL,
+--     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     FOREIGN KEY (userId) REFERENCES Users(userId),
+--     FOREIGN KEY (characterId) REFERENCES Characters(characterId)
+-- );
+
+CREATE TABLE GameSessions (
+    sessionId INT AUTO_INCREMENT PRIMARY KEY,
     userId INT NOT NULL,
-    characterId INT NOT NULL,
-    decision TEXT NOT NULL,
-    -- happinessChange INT NOT NULL,
-    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (userId) REFERENCES Users(userId),
-    FOREIGN KEY (characterId) REFERENCES Characters(characterId)
+    score INT DEFAULT 0,
+    startTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    endTime TIMESTAMP NULL,
+    FOREIGN KEY (userId) REFERENCES Users(userID)
+);
+
+CREATE TABLE GameActions (
+    actionId INT AUTO_INCREMENT PRIMARY KEY,
+    sessionId INT NOT NULL,
+    roundNumber INT NOT NULL,
+    circleIndex INT CHECK (circleIndex BETWEEN 1 AND 3),
+    actionType ENUM('compliment', 'help', 'invite') NOT NULL,
+    happinessChange INT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (sessionId) REFERENCES GameSessions(sessionId)
 );
 
 -- to track scores for profiles
@@ -84,9 +108,9 @@ CREATE TABLE PasswordResets (
 
 -- EXAMPLES:
 -- Insert New User
-INSERT INTO Users (username, userPass, email, UserRole)
-VALUES ('Shea', '123456789', 'Shea123@email.com', 'Account');
+-- INSERT INTO Users (username, userPass, email, UserRole)
+-- VALUES ('Shea', '123456789', 'Shea123@email.com', 'Account');
 
 -- Character Data
-INSERT INTO Characters (CharacterName, personality, happinessScore)
-VALUES ('Lili', 'Loyal, Friendly', 60);
+-- INSERT INTO Characters (CharacterName, personality, happinessScore)
+-- VALUES ('Lili', 'Loyal, Friendly', 60);

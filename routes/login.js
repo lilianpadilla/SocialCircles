@@ -8,7 +8,7 @@ router.get('/', (req, res) => res.render('login'));
 router.post('/', (req, res) => {
     const { username, password } = req.body;
 
-    const sql = `SELECT * FROM Users WHERE username = ?`;
+    const sql = `SELECT * FROM Users WHERE username = ?`; //store in query file
     
     //validation
     db.query(sql, [username], async (err, results) => {

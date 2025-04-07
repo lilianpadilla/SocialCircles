@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     const { email, username, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const sql = `INSERT INTO Users (username, userPass, email, UserRole) VALUES (?, ?, ?, 'Account')`;
+    const sql = `INSERT INTO Users (username, userPass, email, UserRole) VALUES (?, ?, ?, 'Account')`; //store in query file
     //validation
     db.query(sql, [username, hashedPassword, email], (err) => {
         if (err) {

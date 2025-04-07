@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
       ON u.userId = l.userId
     ORDER BY l.totalScore DESC
     LIMIT 10;
-  `;
+  `; //store in query file
 
   // validation
   db.query(sql, (err, result) => {

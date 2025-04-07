@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../database/connection'); 
 
 router.get("/", (req, res) => {
-    const sql = "SELECT CharacterName, personality FROM Characters"; 
+    const sql = "SELECT CharacterName, personality FROM Characters"; // store in query file
 
     db.query(sql, (err, results) => {
         if (err) {

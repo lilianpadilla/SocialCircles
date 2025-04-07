@@ -54,9 +54,14 @@
 
         
         <main class="content"> <!--just hard coded to start with, will add the shuffled characters soon-->
-            <button class="social-circle" id="circle1">Social Circle #1</button>
-            <button class="social-circle" id="circle2">Social Circle #2</button>
-            <button class="social-circle" id="circle3">Social Circle #3</button>
+            <% socialCircles.forEach((circle, i) => { %>
+                <button class="social-circle" id="circle<%= i + 1 %>">
+                  <strong>Social Circle <%= i + 1 %><br></strong><br>
+                  <% circle.forEach(char => { %>
+                    <div><%= char.name %></div>
+                  <% }) %>
+                </button>
+              <% }) %>
         </main>
 
         <div id="actionOverlay" class = "overlay">
@@ -68,7 +73,7 @@
         </div>
      </div>
         
-        <footer class="footer"> Your Happiness Score: </footer>
+     <footer class="footer"> Your Happiness Score: <%= score %> </footer>
         <script src="/scripts/game.js"></script>
     </body>
 </body>

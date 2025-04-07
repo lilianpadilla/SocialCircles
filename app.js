@@ -11,6 +11,8 @@ app.set('views', path.join(__dirname, 'views'));
 // Middleware
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 
 // Session Configuration
 app.use(session({
