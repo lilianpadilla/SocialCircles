@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     db.query(sql, [username, hashedPassword, email], (err) => {
         if (err) {
             console.error('Error registering:', err);
-            return res.status(500).send('Error registering.');
+            return res.status(500).send('Error registering.'); // need to add a pop up saying the email/username is already used
         }
         res.redirect('/login');
     });

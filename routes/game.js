@@ -3,20 +3,36 @@ const router = express.Router();
 const db = require('../database/connection');
 
 function shuffleArray(array) {
-  return [...array].sort(() => Math.random() - 0.5);
+  /*
+  input: an array
+  output: a shuffled array with the same elements (using Durstenfeld shuffle algorithm)
+  */
+  for (var i = array.length - 1; i > 0;i--){
+    var j = Math.floor(Math.random()*(i+1));
+    var tmp = array[i];
+    array[i] = array[j];
+    array[j] = tmp;
+  }
+  return array
 }
 
 function shuffleCircles(characterList) {
+    /*
+  input: list of shuffled characters
+  output: 3 arrays (aka the social circles) each having 3 characters after shuffled 
+  */
   const shuffled = shuffleArray(characterList);
   return [shuffled.slice(0, 3), shuffled.slice(3, 6), shuffled.slice(6, 9)];
 }
 
+
 let currentSession = {
+  // initializes a session with default score 0 and empty circles array
   score: 0,
   circles: []
 };
 
-// GET /game
+// GET /game 
 router.get('/', (req, res) => { 
   db.query('SELECT * FROM Characters', (err, results) => {
     if (err) {
@@ -50,7 +66,7 @@ router.get('/', (req, res) => {
 
 // POST /game/action
 router.post('/action', (req, res) => {
-  const { actionType, circleIndex } = req.body;
+  const {actionType, circleIndex} = req.body;
   const selectedCircle = currentSession.circles[circleIndex];
   let happinessChange = 0;
 
@@ -74,13 +90,15 @@ router.post('/action', (req, res) => {
 });
 
 // POST /game/exit
-router.post('/exit', (req, res) => {
+router.post('/exit', (req, res) => { //SORRY I KNOW THIS IS SO MESSY
   const userId = req.session?.user?.userID;
   if (!userId) return res.status(401).send("Not logged in");
 
   const insertSession = `INSERT INTO GameSessions (userID, score) VALUES (?, ?)`; // goes in query file
   db.query(insertSession, [userId, currentSession.score], (err) => {
     if (err) return res.status(500).send("Failed to log game session");
+
+    // wait i forgot to update end time
 
     const upsertLeaderboard = `
       INSERT INTO Leaderboard (userID, totalScore)

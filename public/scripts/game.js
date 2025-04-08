@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.style.display = "none";
     });
   
-    // action choice buttons
+    // iterating thru action choice buttons
     document.querySelectorAll(".action-button").forEach(btn => {
         btn.addEventListener("click", () => {
           const label = btn.textContent.toLowerCase();
