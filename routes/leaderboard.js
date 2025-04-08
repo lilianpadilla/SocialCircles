@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../database/connection');
+const queries = require('../database/queries');
 
 // sql query to get the username and totalscore and sort them by desc
 router.get('/', function(req, res, next) {
@@ -9,7 +10,7 @@ router.get('/', function(req, res, next) {
     FROM Leaderboard l JOIN Users u 
       ON u.userId = l.userId
     ORDER BY l.totalScore DESC
-    LIMIT 10;
+    LIMIT 9;
   `; //store in query file
 
   // validation

@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
           else if (label.includes("invite")) actionType = "invite";
       
           // for errors but there honestly shouldnt be.....
-          if (!actionType) {
-            console.error("Unknown action button:", label);
-            return;
-          }
+          // if (!actionType) {
+          //   console.error("Unknown action button:", label);
+          //   return;
+          // }
       
           // Submit a POST form to /game/action - credit to chatgpt here
           const form = document.createElement("form");

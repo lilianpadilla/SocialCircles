@@ -104,7 +104,7 @@ router.post('/exit', (req, res) => { //SORRY I KNOW THIS IS SO MESSY
       INSERT INTO Leaderboard (userID, totalScore)
       VALUES (?, ?)
       ON DUPLICATE KEY UPDATE totalScore = GREATEST(totalScore, VALUES(totalScore));
-    `; //goes in query file
+    `; //credit to chatgpt for updating the leader board- there is still an issue here i have to fix though.
 
     db.query(upsertLeaderboard, [userId, currentSession.score], (err) => {
       if (err) return res.status(500).send("Failed to update leaderboard");
