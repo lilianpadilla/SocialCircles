@@ -50,7 +50,7 @@ let currentSession = {
   circles: []
 };
 
-
+// previously in routes, need to be broken down further 
 const getCharacters = ((req, res) => { 
   db.query(queries.characters, (err, results) => {
     if (err) {

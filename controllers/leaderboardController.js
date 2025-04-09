@@ -33,9 +33,9 @@ const getLeaderboard = ((req, res, next) => { // we have a request from the user
 
 
 
-  // need to redo, figure out how to send to game and leaderboard
+  // used ai - need to redo, figure out how to send to game and leaderboard
 
-  const getMiniLeaderboard = (limit = 3, callback) => {
+  const getMiniLeaderboard = (limit, callback) => {
     db.query(queries.miniLeaderboard, (err, result) => {
       if (err) return callback(err);
   

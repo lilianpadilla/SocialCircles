@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const descriptions = document.getElementById('descriptions-btn');
 
   
-    let selectedCircleIndex = null;
+    let selectedCircleIndex = null; // null before any button is selected
   
     // shows modal/action overlay when circle is clicked
     circles.forEach((circle, index) => {
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
           //   return;
           // }
       
-          // Submit a POST form to /game/action - credit to chatgpt here
+          // Submit a POST form to /game/action - created with help from chatgpt
           // usually clicking a button leads to a get request, but we wanted a post
           // keeps track of which action was chosen for the social circle
           const form = document.createElement("form");
@@ -88,9 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.style.display = "none";
     });
   
-    // Confirm exit and send POST request - credit to chatgpt but check this to make sure!!!
+    // Confirm exit and send POST request
     confirmExit.addEventListener("click", () => {
-      fetch("/game/exit", {
+      fetch("/game/exit", { //sends post req here
         method: "POST",
         headers: { "Content-Type": "application/json" }
       }).then(() => {
