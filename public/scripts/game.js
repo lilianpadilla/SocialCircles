@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
           // }
       
           // Submit a POST form to /game/action - credit to chatgpt here
+          // usually clicking a button leads to a get request, but we wanted a post
+          // keeps track of which action was chosen for the social circle
           const form = document.createElement("form");
           form.method = "POST";
           form.action = "/game/action";
@@ -65,15 +67,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
 
-      // Redirect to leaderboard but this isnt working 
-    leaderboard.addEventListener("click", () => {
-        window.location.href = "/leaderboard";
-    });
+    //   // Redirect to leaderboard but this isnt working 
+    // leaderboard.addEventListener("click", () => {
+    //     window.location.href = "/leaderboard";
+    // });
 
-    // Redirect to character descriptions but this isnt working
-    descriptions.addEventListener("click", () => {
-        window.location.href = "/descriptions";
-    });
+    // // Redirect to character descriptions but this isnt working
+    // descriptions.addEventListener("click", () => {
+    //     window.location.href = "/descriptions";
+    // });
 
   
     // Exit button opens confirmation modal
@@ -92,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" }
       }).then(() => {
-        window.location.href = "/login";
+        window.location.href = "/";
       });
     });
   });

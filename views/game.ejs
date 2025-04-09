@@ -20,46 +20,34 @@
         <div id= "exitModal" class = "modal">
             <div class = "modal-content">
                 <p id = "exit-msg">Are you sure you want to exit?</p>
-                <button id="confirmExit">Yes, return to login</button>
+                <button id="confirmExit">Yes, return to home</button>
                 <button id="cancelExit">Cancel</button>
             </div>
         </div>
 
         
         <div class="leaderboard-panel">
+            <% miniLeaderboard.forEach(player => { %>
+                <div class="player-rank">
+                  <span><%= player.icon %></span>
+                  <span><%= player.name %></span>
+                  <span><%= player.score %></span>
+                </div>
+              <% }) %>
             
-                <div class="user-input">
-                    <span>&#128081;</span> <!--number 1 leaderboard, looked up the html entity for icons-->
-                    <input type="text">
-                    <button>+</button>
-                </div>
-                <div class="user-input">
-                    <span>&#128100;</span>
-                    <input type="text" >
-                    <button>+</button>
-                </div>
-                <div class="user-input">
-                    <span>&#128100;</span>
-                    <input type="text">
-                    <button>+</button>
-                </div>
-            
-                <button id="leaderboard-btn" class="leaderboard-btn">View Leaderboard</button>
-                <button id="descriptions-btn" class="descriptions-btn">View Character Descriptions</button>
-                
-           <!-- <a href="/leaderboard" class="leaderboard-btn">Leaderboard</a>
-            <a href="/descriptions" class="descriptions-btn">View Character Descriptions</a>--> <!-- Lilian added this -->
+              <a href="/leaderboard" class="leaderboard-btn">View Leaderboard</a>
+              <a href="/descriptions" class="descriptions-btn">View Character Descriptions</a>
         </div>
         
 
         
-        <main class="content"> <!--just hard coded to start with, will add the shuffled characters soon-->
+        <main class="content">
             <% socialCircles.forEach((circle, i) => { %>
                 <button class="social-circle" id="circle<%= i + 1 %>">
-                  <strong>Social Circle <%= i + 1 %><br></strong><br>
-                  <% circle.forEach(char => { %>
-                    <div><%= char.name %></div>
-                  <% }) %>
+                    <strong>Social Circle <%= i + 1 %><br></strong><br>
+                    <div>
+                      <%= circle.map(char => char.name).join(", ") %>
+                    </div>
                 </button>
               <% }) %>
         </main>
