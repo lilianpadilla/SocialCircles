@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("exitModal");
     const confirmExit = document.getElementById("confirmExit");
     const cancelExit = document.getElementById("cancelExit");
-    // trying to add more buttons, currently not working
     const leaderboard = document.getElementById('leaderboard-btn');
     const descriptions = document.getElementById('descriptions-btn');
 
@@ -66,17 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-
-    //   // Redirect to leaderboard but this isnt working 
-    // leaderboard.addEventListener("click", () => {
-    //     window.location.href = "/leaderboard";
-    // });
-
-    // // Redirect to character descriptions but this isnt working
-    // descriptions.addEventListener("click", () => {
-    //     window.location.href = "/descriptions";
-    // });
-
+      leaderboard.addEventListener("click", () => {
+        window.location.href = "/leaderboard";
+        console.log('leaderboard button was clicked');
+      });
+      
+      descriptions.addEventListener("click", () => {
+        window.location.href = "/descriptions";
+        console.log('descriptions button was clicked');
+      });
   
     // Exit button opens confirmation modal
     exitBtn.addEventListener("click", () => {
