@@ -75,14 +75,14 @@ CREATE TABLE AdminActions (
     FOREIGN KEY (adminID) REFERENCES Users(userID)
 );
 
--- not final
-CREATE TABLE PasswordResets (
-    resetID INT AUTO_INCREMENT PRIMARY KEY,
-    userID INT NOT NULL,
-    resetToken VARCHAR(200) NOT NULL, -- generate a pw reset token to email
-    expiration TIMESTAMP NOT NULL,
-    FOREIGN KEY (userID) REFERENCES Users(userID) -- ON DELETE CASCADE - probably wont need this as we are not deleting accounts, just switching their status
-);
+-- -- not final
+-- CREATE TABLE PasswordResets (
+--     resetID INT AUTO_INCREMENT PRIMARY KEY,
+--     userID INT NOT NULL,
+--     resetToken VARCHAR(200) NOT NULL, -- generate a pw reset token to email
+--     expiration TIMESTAMP NOT NULL,
+--     FOREIGN KEY (userID) REFERENCES Users(userID) -- ON DELETE CASCADE - probably wont need this as we are not deleting accounts, just switching their status
+-- );
 
-ALTER TABLE Leaderboard
-ADD UNIQUE KEY unique_user (userID);
+-- ALTER TABLE Leaderboard
+-- ADD UNIQUE KEY unique_user (userID);

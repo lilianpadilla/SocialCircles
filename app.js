@@ -4,23 +4,29 @@ var path = require('path');
 var app = express();
 var createError = require('http-errors');
 
-// View engine setup
+// view engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Middleware
+// middleware
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-// Session Configuration
+// session 
 app.use(session({
     secret: 'lily12shea22aliya25isworkinghardddd123onthisprojectperiod',
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false, httpOnly: true }
 }));
+
+// app.use((req, res, next) => {
+//   res.setHeader('Cache-Control', 'no-store'); //reload from server, not memory
+//   next();
+// });
+
 
 // Expose session user to all views
 app.use((req, res, next) => {

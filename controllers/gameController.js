@@ -52,6 +52,7 @@ let currentSession = {
 
 // previously in routes, need to be broken down further 
 const getCharacters = ((req, res) => { 
+  //if (!req.session.user) return res.redirect('/login');
   db.query(queries.characters, (err, results) => {
     if (err) {
       console.error("DB error:", err);
@@ -60,19 +61,17 @@ const getCharacters = ((req, res) => {
     let characters = mapCharacters(results)
     const socialCircles = shuffleCircles(characters);
 
-    currentSession = {
-      circles: socialCircles,
-      score: 0
-    }; 
+    req.session.circles = socialCircles;
+    req.session.score = 0;
 
     getMiniLeaderboard(3, (err, topPlayers) => {
       if (err) return res.status(500).send("Failed to load leaderboard");
 
     res.render('game', {
       title: 'Social Circles',
-      socialCircles,
-      score: currentSession.score,
-      miniLeaderboard: topPlayers
+        socialCircles,
+        score: req.session.score,
+        miniLeaderboard: topPlayers
       });
     });
   });
@@ -80,8 +79,9 @@ const getCharacters = ((req, res) => {
 
 
 const updateScore = ((req, res) => {
+  //if (!req.session.user) return res.redirect('/login');
   const {actionType, circleIndex} = req.body;
-  const selectedCircle = currentSession.circles[circleIndex];
+  const selectedCircle = req.session.circles[circleIndex];
   let happinessChange = 0;
 
   selectedCircle.forEach(char => { //takes the action chosen and sees the integer mapped to it
@@ -93,16 +93,16 @@ const updateScore = ((req, res) => {
     }
   });
 
-  currentSession.score += happinessChange;
-  currentSession.circles = shuffleCircles(currentSession.circles.flat()); // combines to one array and reshuffles+splice
+  req.session.score += happinessChange;
+  req.session.circles = shuffleCircles(req.session.circles.flat()); // combines to one array and reshuffles+splice
 
   getMiniLeaderboard(3, (err, topPlayers) => {
     if (err) return res.status(500).send("Failed to reload leaderboard");
 
     res.render('game', {
       title: 'Social Circles',
-      socialCircles: currentSession.circles,
-      score: currentSession.score,
+      socialCircles: req.session.circles,
+      score: req.session.score,
       miniLeaderboard: topPlayers
     });
   });
@@ -110,15 +110,11 @@ const updateScore = ((req, res) => {
 
 // POST /game/exit
 const saveGame = ((req, res) => { 
-  const userId = req.session?.user?.userID;
-  if (!userId) return res.status(401).send("Not logged in");
-
-  db.query(queries.insertSession, [userId, currentSession.score], (err) => {
+  if (!req.session.user) return res.redirect('/login');
+  db.query(queries.insertSession, [userId, req.session.score], (err) => {
     if (err) return res.status(500).send("Failed to log game session");
 
-    // wait i forgot to update endTime
-
-    db.query(queries.upsertLeaderboard, [userId, currentSession.score], (err) => {
+    db.query(queries.upsertLeaderboard, [userId, req.session.score], (err) => {
       if (err) return res.status(500).send("Failed to update leaderboard");
       res.send("Game saved and leaderboard updated");
     });
