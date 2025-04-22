@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cancelExit = document.getElementById("cancelExit");
   const leaderboard = document.getElementById('leaderboard-btn');
   const descriptions = document.getElementById('descriptions-btn');
+  const profileBtn = document.querySelector(".profile-btn");
 
 
   let selectedCircleIndex = null; // null before any button is selected
@@ -73,6 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
     descriptions.addEventListener("click", () => {
       window.location.href = "/descriptions";
       console.log('descriptions button was clicked');
+    });
+
+    profileBtn.addEventListener("click", () => {
+      window.location.href = "/profile";
     });
 
   // Exit button opens confirmation modal

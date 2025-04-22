@@ -8,6 +8,8 @@ body {
   
  .navbar {
     display: flex;
+    z-index: 200;
+    position: relative;
     justify-content: space-between;
     padding: 10px;
     background: #7B68EE;
