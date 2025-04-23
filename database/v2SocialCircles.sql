@@ -1,9 +1,9 @@
--- CREATE DATABASE
+
 DROP DATABASE IF EXISTS v2socialcircles;
 CREATE DATABASE v2socialcircles;
 USE v2socialcircles;
 
--- USERS
+
 CREATE TABLE Users (
     userID INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE Users (
     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- PROFILES (optional display info)
+-- contains profile info we may want later
 CREATE TABLE Profiles (
     profileId INT AUTO_INCREMENT PRIMARY KEY,
     userId INT NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE Profiles (
     FOREIGN KEY (userId) REFERENCES Users(userID) ON DELETE CASCADE
 );
 
--- CHARACTERS with preferences
+
 CREATE TABLE Characters (
     characterID INT AUTO_INCREMENT PRIMARY KEY,
     CharacterName VARCHAR(50) NOT NULL UNIQUE,
@@ -33,7 +33,7 @@ CREATE TABLE Characters (
     invite INT NOT NULL
 );
 
--- GAME SESSIONS (one row per game if player exits properly)
+
 CREATE TABLE GameSessions (
     sessionID INT AUTO_INCREMENT PRIMARY KEY,
     userID INT NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE GameSessions (
     FOREIGN KEY (userID) REFERENCES Users(userID)
 );
 
--- GAME ACTIONS (track each action made during a session)
+-- may want to record game actions if user is interested in history 
 CREATE TABLE GameActions (
     actionID INT AUTO_INCREMENT PRIMARY KEY,
     sessionID INT NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE GameActions (
     FOREIGN KEY (sessionID) REFERENCES GameSessions(sessionID)
 );
 
--- OPTIONAL: LEADERBOARD (manual or derived from GameSessions)
+
 CREATE TABLE Leaderboard (
     leaderboardID INT AUTO_INCREMENT PRIMARY KEY,
     userID INT NOT NULL,
@@ -64,25 +64,25 @@ CREATE TABLE Leaderboard (
     FOREIGN KEY (userID) REFERENCES Users(userID)
 );
 
--- ADMIN ACTION LOG
+-- keep track of what admins do 
 CREATE TABLE AdminActions (
     actionID INT AUTO_INCREMENT PRIMARY KEY,
     adminID INT NOT NULL,
     userID INT,
-    actionType ENUM('Ban', 'Score Reset', 'Profile Edit'),
+    actionType ENUM('Ban', 'Score Reset'),
     actionDetails TEXT,
     actionDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (adminID) REFERENCES Users(userID)
 );
 
--- PASSWORD RESET (optional)
-CREATE TABLE PasswordResets (
-    resetID INT AUTO_INCREMENT PRIMARY KEY,
-    userID INT NOT NULL,
-    resetToken VARCHAR(200) NOT NULL,
-    expiration TIMESTAMP NOT NULL,
-    FOREIGN KEY (userID) REFERENCES Users(userID) ON DELETE CASCADE
-);
+-- -- not final
+-- CREATE TABLE PasswordResets (
+--     resetID INT AUTO_INCREMENT PRIMARY KEY,
+--     userID INT NOT NULL,
+--     resetToken VARCHAR(200) NOT NULL, -- generate a pw reset token to email
+--     expiration TIMESTAMP NOT NULL,
+--     FOREIGN KEY (userID) REFERENCES Users(userID) -- ON DELETE CASCADE - probably wont need this as we are not deleting accounts, just switching their status
+-- );
 
-ALTER TABLE Leaderboard
-ADD UNIQUE KEY unique_user (userID);
+-- ALTER TABLE Leaderboard
+-- ADD UNIQUE KEY unique_user (userID);
