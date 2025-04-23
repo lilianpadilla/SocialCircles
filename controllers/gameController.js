@@ -44,12 +44,6 @@ function mapCharacters(characterList){
 }
 
 
-let currentSession = {
-  // initializes a session with default score 0 and empty circles array
-  score: 0,
-  circles: []
-};
-
 // previously in routes, need to be broken down further 
 const getCharacters = ((req, res) => { 
   //if (!req.session.user) return res.redirect('/login');
@@ -124,6 +118,7 @@ const saveGame = ((req, res) => {
 module.exports = {
     shuffleArray,
     shuffleCircles,
+    mapCharacters,
     getCharacters,
     updateScore,
     saveGame,
