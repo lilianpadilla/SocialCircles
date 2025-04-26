@@ -1,10 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin</title>
-</head>
-<body>
-    <h1>this will be the admin page</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>admin</title>
+        <link rel="stylesheet" href="/stylesheets/admin.css"> 
+       
+    </head>
+    <body>
+        <nav class="navbar">
+            <!-- <button class="menu-btn">&#9776;</button> -->
+             <p>Admin Page</p>
+             <a href="/logout">
+                <button class="back-btn">Log Out</button>
+            </a>
+         </nav>
+
+        <video autoplay muted loop id = "adminVideo">
+            <source src= "/assets/admin_video.mp4">
+        </video>
+
+        <div class="admin-box">
+            <% if (user) { %>
+            <h1> Welcome, <%= user.username %>!
+                <% } %>  
+            </h1>
+             <!-- Ban User Form -->
+                <form action="/admin/ban" method="POST" class="admin-form">
+                    <input type="text" name="username" placeholder="Username to ban" required>
+                    <button type="submit" class="ban-btn">Ban User</button>
+                </form>
+
+                <!-- Reset User Score Form -->
+                <!-- <form action="/admin/reset" method="POST" class="admin-form">
+                    <input type="text" name="username" placeholder="Username to reset score" required>
+                    <button type="submit" class="reset-btn">Reset Score</button>
+                </form> -->
+
+                <!-- Promote User to Admin Form -->
+                <form action="/admin/addAdmin" method="POST" class="admin-form">
+                    <input type="text" name="username" placeholder="Username to promote" required>
+                    <button type="submit" class="addAdmin-btn">Promote to Admin</button>
+                </form>
+                
+        </div>
+    </div>
 </body>
 </html>

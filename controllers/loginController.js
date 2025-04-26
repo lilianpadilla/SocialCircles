@@ -12,12 +12,18 @@ const userLogin = (req, res) => {
             return res.status(401).send('User not found.');
         }
 
-        const isMatch = await bcrypt.compare(password, results[0].userPass);
+        const user = results[0];
+
+        if (user.status !== 'Active') {
+            return res.status(403).send('Your account has been banned.');
+        }
+
+        const isMatch = await bcrypt.compare(password, user.userPass);
         if (!isMatch) {
             return res.status(401).send('Incorrect password.');
         }
 
-        const dbRole = results[0].UserRole; 
+        const dbRole = user.UserRole;
         console.log("Database role:", dbRole, "User selected:", userrole);
 
         if (dbRole.toLowerCase() !== userrole.toLowerCase()) {
@@ -25,18 +31,18 @@ const userLogin = (req, res) => {
         }
 
         req.session.user = {
-            userID: results[0].userID,
-            username: results[0].username,
+            userID: user.userID,
+            username: user.username,
             role: dbRole
         };
 
-         
-         if (dbRole.toLowerCase() === 'admin') {
-            return res.redirect('/admin'); 
+        if (dbRole.toLowerCase() === 'admin') {
+            return res.redirect('/admin');
         } else {
             return res.redirect('/');
         }
     });
 };
+
   
 module.exports = {userLogin}
