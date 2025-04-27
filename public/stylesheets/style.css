@@ -136,6 +136,14 @@
         width: 100%;
         margin-bottom: 15px;
     }
+    .auth-form select {
+      padding: 10px;
+        border: 2px solid #c4a2d7;
+        border-radius: 10px;
+        width: 100%;
+        margin-bottom: 15px;
+
+    }
 
     .auth-button {
         background-color: #7b94ed;
@@ -220,4 +228,3 @@
       font-weight: normal;
       opacity: 0.8;
     }
-

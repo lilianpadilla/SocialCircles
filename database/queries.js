@@ -13,7 +13,10 @@ module.exports = {
     miniLeaderboard: `SELECT u.username, l.totalScore FROM Leaderboard l JOIN Users u 
                         ON u.userId = l.userId
                         ORDER BY l.totalScore DESC
-                        LIMIT 3;` // may not need this anymore
+                        LIMIT 3;` ,// may not need this anymore
+    updateUserToAdmin: `UPDATE Users SET UserRole = 'Admin' WHERE username = ?`,
+    resetScore: `UPDATE Leaderboard SET totalScore = 0 WHERE username = ?`,
+    banUser: `UPDATE Users SET status = 'Banned' WHERE username = ?`,
 
 
 };

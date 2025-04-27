@@ -87,7 +87,11 @@
       font-size: 15px;
       height: 45px;
       width: 100px;
-    }
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+  }
+    
   
     p { 
       text-shadow: 6px 6px 12px #2c334b;

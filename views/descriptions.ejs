@@ -8,17 +8,18 @@
 </head>
 <body>
     <nav class="navbar">
-        <button class="menu-btn">&#9776;</button>
         <p>Social Circles</p>
-        <button class="profile-btn">&#128100;</button>
+        <a href = "/game">
+            <button class = "back-btn">Back to Game</button>
+        </a>
     </nav>
 
     <div class="descriptions">
         <% characters.forEach(character => { %>
             <div class="charname">
                 <span>&#128100;</span>
-                <p><strong><%= character.CharacterName %></strong></p>
-                <p><%= character.personality %></p>
+                <p2><strong><%= character.CharacterName %></strong></p2>
+                <p2><%= character.personality %></p2>
             </div>
         <% }); %>
     </div>

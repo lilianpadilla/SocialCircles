@@ -13,12 +13,22 @@ body {
     justify-content: space-between;
     padding: 10px;
     background: #7B68EE;
-}
-.menu-btn, .profile-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
+  }   
+
+  p {
+    text-shadow: 6px 6px 12px #2c334b;
+    color: white;
+    }
+
+  .back-btn {
+    background-color: #d3de6b;
     cursor: pointer;
+    font-size: 15px;
+    height: 45px;
+    width: 100px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 .descriptions {
     display: flex;

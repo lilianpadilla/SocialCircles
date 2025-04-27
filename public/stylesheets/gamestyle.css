@@ -51,7 +51,11 @@ p {
     cursor: pointer;   
     height: 45px;
     width: 100px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
+
 
 .modal {
     display: none;

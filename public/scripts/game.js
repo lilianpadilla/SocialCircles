@@ -36,14 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
         else if (label.includes("help")) actionType = "help";
         else if (label.includes("invite")) actionType = "invite";
     
-        // for errors but there honestly shouldnt be.....
-        // if (!actionType) {
-        //   console.error("Unknown action button:", label);
-        //   return;
-        // }
-    
         // Submit a POST form to /game/action - created with help from chatgpt
-        // usually clicking a button leads to a get request, but we wanted a post
+        // usually clicking a button leads to a get request, but we wanted post
         // keeps track of which action was chosen for the social circle
         const form = document.createElement("form");
         form.method = "POST";
