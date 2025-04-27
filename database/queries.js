@@ -23,6 +23,10 @@ module.exports = {
     updateUserToAdmin: `UPDATE Users SET UserRole = 'Admin' WHERE username = ?`,
     resetScore: `UPDATE Leaderboard SET totalScore = 0 WHERE username = ?`,
     banUser: `UPDATE Users SET status = 'Banned' WHERE username = ?`,
-
-
+    getUserStats: `
+        SELECT 
+            (SELECT COUNT(*) FROM GameSessions WHERE userID = ?) AS gamesPlayed,
+            (SELECT AVG(score) FROM GameSessions WHERE userID = ?) AS averageScore,
+            (SELECT created FROM Users WHERE userID = ?) AS joinDate
+    `
 };
