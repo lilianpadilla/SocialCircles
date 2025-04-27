@@ -30,10 +30,9 @@ const getLeaderboard = ((req, res, next) => { // we have a request from the user
     });
   });
 
-
-
-
-  // used ai - need to redo, figure out how to send to game and leaderboard
+  // credit to chatgpt for getMiniLeaderboard
+  // struggled with getting the first 3 leaderboard results on game page,
+  // so this was a quick solution, but could probably be redone
 
   const getMiniLeaderboard = (limit, callback) => {
     db.query(queries.miniLeaderboard, (err, result) => {
@@ -52,7 +51,7 @@ const getLeaderboard = ((req, res, next) => { // we have a request from the user
         };
       });
   
-      callback(null, miniLeaderboard); //this line is AI-generated usually callback (err, res), but in this case there is no errors and the result is the mini leaderboard
+      callback(null, miniLeaderboard);
     });
   };
 

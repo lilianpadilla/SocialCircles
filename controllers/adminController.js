@@ -7,7 +7,7 @@ const banUser = (req, res) => {
     const { username } = req.body; 
     db.query(queries.banUser, [username], (err) => {
         if (err) return res.status(500).send('Failed to ban user.');
-        res.redirect('/admin'); // back to admin panel
+        res.redirect('/admin'); 
     });
 };
 
