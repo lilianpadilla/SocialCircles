@@ -97,80 +97,79 @@
       margin: 0;
       background-color: #ffecbd;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
+    }
   
-  .auth-container {
-      background-color: #fff;
+    .auth-container {
+      flex: 0 0 400px; 
+      background-color: white;
       padding: 40px;
       border-radius: 20px;
-      box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-      margin: 0 auto 30px; 
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      width: auto;
     }
 
     h1 {
-        font-size: 80px;
-        color:  white;
-        text-align: center;
-        margin-top: 20vh;
-        text-shadow: 4px 4px 10px #2c334b;
+      font-size: 80px;
+      color:  white;
+      text-align: center;
+      margin-top: 20vh;
+      text-shadow: 4px 4px 10px #2c334b;
     }
 
     .auth-form {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
     }
 
     .auth-form label {
-        font-weight: bold;
-        margin-top: 10px;
-        text-align: left;
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: left;
     }
 
     .auth-form input {
-        padding: 10px;
-        border: 2px solid #c4a2d7;
-        border-radius: 10px;
-        width: 100%;
-        margin-bottom: 15px;
+      padding: 10px;
+      border: 2px solid #c4a2d7;
+      border-radius: 10px;
+      width: 100%;
+      margin-bottom: 15px;
     }
     .auth-form select {
       padding: 10px;
-        border: 2px solid #c4a2d7;
-        border-radius: 10px;
-        width: 100%;
-        margin-bottom: 15px;
+      border: 2px solid #c4a2d7;
+      border-radius: 10px;
+      width: 100%;
+      margin-bottom: 15px;
 
     }
 
     .auth-button {
-        background-color: #7b94ed;
-        color: white;
-        width: 100%;
-        height: 45px;
-        border: none;
-        border-radius: 25px;
-        margin-top: 15px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+      background-color: #7b94ed;
+      color: white;
+      width: 100%;
+      height: 45px;
+      border: none;
+      border-radius: 25px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     .auth-button:hover {
-        background-color: #e59deb;
+      background-color: #e59deb;
     }
 
     /* Link Styling for Navigation */
     .auth-link {
-        color: #ff7c7c;
-        text-decoration: none;
-        margin-top: 10px;
-        display: block;
+      color: #ff7c7c;
+      text-decoration: none;
+      margin-top: 20px;
+      display: block;
+      font-size: 20px;
     }
 
     .auth-link:hover {
-        text-decoration: underline;
+      text-decoration: underline;
     }
 
     /* Corner GIF Styling */
@@ -187,26 +186,25 @@
 
     /* Password Validation */
     #message {
+      flex: 0 0 250px; /* width */
       background-color: #d9d7d7;
-
       display: flex;
       flex-direction: column;
       align-items: flex-start; 
-      justify-content: flex-start; 
-
-      color: #000;
+      justify-content: center;
       border-radius: 12px;
       padding: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      margin-top: 15px;
       font-size: 14px;
       line-height: 1.6;
-      width: 300px;
+      height: fit-content;
     }
+    
+    
 
-    h2{
+    h2 {
       font-size: 20px;
-      color:  white;
+      color: white;
       text-align: center;
       text-shadow: 4px 4px 10px #2c334b;
     }
@@ -218,13 +216,29 @@
 
     /* Valid check */
     .valid {
-      color: #4CAF50; /* soft green */
+      color: #4CAF50;
       font-weight: bold;
     }
 
     /* Invalid check */
     .invalid {
-      color: #ff4d4d; /* soft red */
+      color: #ff4d4d; 
       font-weight: normal;
       opacity: 0.8;
     }
+
+    /* Error messages for login */
+    .error-message {
+      color: #ff4d4d;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .password-container {
+      display: flex;
+      align-items: center; 
+      justify-content: center;
+      gap: 80px; /* bigger space between the two boxes */
+      margin-top: 30px;
+    }
+    

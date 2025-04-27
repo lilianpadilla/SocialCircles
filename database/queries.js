@@ -1,6 +1,8 @@
 module.exports = {
     login: `SELECT * FROM Users WHERE username = ?`,
-    register: `INSERT INTO Users (username, userPass, email, UserRole) VALUES (?, ?, ?, 'Account')`,
+    register: `INSERT INTO Users (username, userPass, email, UserRole, securityCode) VALUES (?, ?, ?, 'Account', ?)`,
+    findUserByUsername: `SELECT * FROM Users WHERE username = ?`,
+    updateUserPassword: `UPDATE Users SET userPass = ? WHERE username = ?`,
     descriptions: `SELECT CharacterName, personality FROM Characters`,
     characters: `SELECT * FROM Characters`,
     insertSession: `INSERT INTO GameSessions (userID, score) VALUES (?, ?)`,
