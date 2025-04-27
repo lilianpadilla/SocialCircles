@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../database/connection');
 const queries = require('../database/queries');
 const { getMiniLeaderboard } = require('../controllers/leaderboardController');
+const {isAuthenticated} = require('../middleware/authentication')
 
 function shuffleArray(array) {
   /*
@@ -104,11 +105,11 @@ const updateScore = ((req, res) => {
 
 // POST /game/exit
 const saveGame = ((req, res) => { 
-  if (!req.session.user) return res.redirect('/login');
-  db.query(queries.insertSession, [userId, req.session.score], (err) => {
+  // if (!req.session.user) return res.redirect('/login');
+  db.query(queries.insertSession, [req.session.user.userID, req.session.score], (err) => {
     if (err) return res.status(500).send("Failed to log game session");
 
-    db.query(queries.upsertLeaderboard, [userId, req.session.score], (err) => {
+    db.query(queries.upsertLeaderboard, [req.session.user.userID, req.session.score], (err) => {
       if (err) return res.status(500).send("Failed to update leaderboard");
       res.send("Game saved and leaderboard updated");
     });

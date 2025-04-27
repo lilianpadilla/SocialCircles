@@ -6,7 +6,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-    req.session.destroy(() => res.redirect('/'));
+    req.session.destroy(() => {
+        res.set('Cache-Control', 'no-store');
+        res.set('Pragma', 'no-cache');
+        res.set('Expires', '0');
+        res.redirect('/');
+    });
 });
 
 module.exports = router;
