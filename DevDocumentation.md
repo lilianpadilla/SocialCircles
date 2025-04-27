@@ -6,6 +6,7 @@ Social Circles is a Node.js, Express.js, EJS, MySQL project for a web-based game
 - /**bin**: Untouched; express template
 - /**Controllers**: Contains all the logic used inside of HTTP Requests and interactions with the database
 - /**Database**: Contains our DB connection along with a SQL script to get a local DB set up. Also contains queries used throughout the controllers
+- /**Middleware**: Functions to be used for all routes
 - /**Public**: Files that are available client-side, such as images, stylesheets, some javascripts
 - /**Routes**: Handles all the routing logic
 - /**Views**: Dynamic front-end pages for our game 
@@ -71,6 +72,9 @@ Social Circles is a Node.js, Express.js, EJS, MySQL project for a web-based game
 - **register**
 - - **registerUser**: retrieves form information from register page, encrypts password and enters it into users table. redirects to login page
 
+## Middleware
+- **authentication**
+- - **isAuthenticated**:Cache-Control to be used by the routes
 ## Public Scripts
  - **game**
  - - Allows for interaction between the user and webpages, such as redirecting to pages and handling post request from user's action of choice
