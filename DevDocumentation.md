@@ -39,6 +39,17 @@ Social Circles is a Node.js, Express.js, EJS, MySQL project for a web-based game
     ```
 
 3. On workbench, set up local DB by changing the connection to your credentials and running v2SocialCircles.sql in the database folder
+ - You will need to create your own .env file in the root directory, so run
+    ```
+    npm install dotenv
+    ```
+    and add this template to .env with you DB credentials
+    ```
+    DB_HOST=yourhost
+    DB_USER=youruser
+    DB_PASSWORD=yourpassword
+    DB_NAME=v2SocialCircles
+    ```
 
 4. To start the app, run
     ``` 
@@ -93,10 +104,9 @@ Social Circles is a Node.js, Express.js, EJS, MySQL project for a web-based game
 1. **Cache-Control**: Our game does not prevent users from accessing private information once already logged out.
 2. Admin controls: While we admins have the ability to ban or promote users, they do not have the option to undo those actions
 3. Error notifications: While our error handling is decent, we do not have pretty pages or pop-ups for errors, just a white page with the error status number and a message
-4. Leaderboard: Banned users still appear on the leaderboard
+4. **Leaderboard**: Banned users still appear on the leaderboard, also back button needs to redirect exactly where they came from, not just the game page
 5. Redundant CSS Files: some of our css files repeat the same styling, could use a refactor
 6. miniLeaderboard function works, but its probably not written well
 7. Some of the gameController functionalities can be broken down, since there are multiple operations being performed. This would make it easier to test...
-
-
+8. Update endTime in our gameSessions table, we are not using it (we forgot about it) but it may be useful in the future
 

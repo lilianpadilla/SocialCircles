@@ -11,26 +11,32 @@ const {
   saveGame,
 } = require('../controllers/gameController');
 
-router.get('/', isAuthenticated, (req, res, next) => {
-  if (!req.session.user) {
-    return res.redirect('/login');
-  }
-  getCharacters(req, res, next);
-});
+router.get('/', getCharacters)
+router.post('/action',updateScore)
+router.post('/exit',saveGame)
 
-router.post('/action', isAuthenticated, (req, res, next) => {
-  if (!req.session.user) {
-    return res.redirect('/login');
-  }
-  updateScore(req, res, next);
-});
+//attempt at caching
 
-router.post('/exit', isAuthenticated, (req, res, next) => {
-  if (!req.session.user) {
-    return res.redirect('/login');
-  }
-  saveGame(req, res, next);
-});
+// router.get('/', isAuthenticated, (req, res, next) => {
+//   if (!req.session.user) {
+//     return res.redirect('/login');
+//   }
+//   getCharacters(req, res, next);
+// });
+
+// router.post('/action', isAuthenticated, (req, res, next) => {
+//   if (!req.session.user) {
+//     return res.redirect('/login');
+//   }
+//   updateScore(req, res, next);
+// });
+
+// router.post('/exit', isAuthenticated, (req, res, next) => {
+//   if (!req.session.user) {
+//     return res.redirect('/login');
+//   }
+//   saveGame(req, res, next);
+// });
 
 module.exports = router;
 
@@ -48,7 +54,5 @@ module.exports = router;
 // } = require('../controllers/gameController')
 
 
-// router.get('/', getCharacters)
-// router.post('/action',updateScore)
-// router.post('/exit',saveGame)
+
 // module.exports = router;

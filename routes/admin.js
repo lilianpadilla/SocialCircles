@@ -10,12 +10,24 @@ const {
    // resetScore
   } = require('../controllers/adminController')
 
-router.get("/", isAuthenticated, (req, res) => {
-  res.render('admin');
-});
-// for now were not using reset score
-router.post('/ban', isAuthenticated, banUser);
-router.post('/addAdmin', isAuthenticated, updateUserToAdmin);
+
+router.get('/', (req, res) => 
+  res.render('admin'));
+
+
+router.post('/ban', banUser);
+router.post('/addAdmin', updateUserToAdmin);
+// router.post('/reset', resetScore); // did not end up using
+
+
+// attempt at caching
+
+// router.get("/", isAuthenticated, (req, res) => {
+//   res.render('admin');
+// });
+// // for now were not using reset score
+// router.post('/ban', isAuthenticated, banUser);
+// router.post('/addAdmin', isAuthenticated, updateUserToAdmin);
 
 module.exports = router;
 
