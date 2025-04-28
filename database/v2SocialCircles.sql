@@ -1,9 +1,6 @@
-
-DROP DATABASE IF EXISTS v2socialcircles;
-CREATE DATABASE v2socialcircles;
-USE v2socialcircles;
-
-
+DROP DATABASE IF EXISTS v2SocialCircles;
+CREATE DATABASE v2SocialCircles;
+USE v2SocialCircles;
 CREATE TABLE Users (
     userID INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
