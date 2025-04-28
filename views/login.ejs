@@ -29,6 +29,14 @@
         </form>
 
         <a href="/register" class="auth-link">Don't have an account? Register here!</a>
+        <a href="/forgotPassword" class="auth-link">Forgot your password? Reset it here!</a>
+          
+        <!-- I used chat for this part put it basically sends an error message if the login failed-->
+        <% if (typeof loginFailed !== 'undefined' && loginFailed) { %>
+            <script>
+                alert("<%= errorMessage %>");
+            </script>
+        <% } %>
     </div>
 </body>
 </html>
