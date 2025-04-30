@@ -19,22 +19,24 @@
             <div class="profile-header">
                 <!-- <img class="profile-avatar" src="/assets/default-avatar.png" alt="Avatar" /> -->
                 <!-- <h2 class="player-name">Lili</h2> -->
-                <p class="player-user">@user001</p>
+                <p class="player-user">@<%= username %></p>
             </div>
 
             <!-- Stats Section -->
             <div class="profile-stats">
                 <div class="stat-item">
-                    <span class="stat-value">1,250</span>
-                    <span class="stat-label">Wins</span>
+                    <span class="stat-value"><%= stats.gamesPlayed %></span>
+                    <span class="stat-label">Games Played</span>
                 </div>
+                
                 <div class="stat-item">
-                    <span class="stat-value">98</span>
-                    <span class="stat-label">Losses</span>
+                    <span class="stat-value"><%= stats.averageScore.toFixed(0) %></span>
+                    <span class="stat-label">Average Score</span>
                 </div>
+                
                 <div class="stat-item">
-                    <span class="stat-value">87%</span>
-                    <span class="stat-label">Win Rate</span>
+                    <span class="stat-value"><%= new Date(stats.joinDate).toDateString() %></span>
+                    <span class="stat-label">Member Since</span>
                 </div>
             </div>
         </div>

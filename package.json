@@ -16,7 +16,7 @@
     "express-session": "^1.18.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "mysql2": "^3.14.0"
+    "mysql2": "^3.14.1"
   },
   "description": "A semester long project for Trinity University's Software Engineering Course",
   "main": "app.js",

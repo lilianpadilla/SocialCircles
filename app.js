@@ -45,6 +45,7 @@ const gameRouter = require('./routes/game');
 const leaderboardRouter = require('./routes/leaderboard');
 const profileRouter = require('./routes/profile');
 const adminRouter = require('./routes/admin');
+const forgotPasswordRouter = require('./routes/forgotPassword');
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
@@ -55,6 +56,7 @@ app.use('/game', gameRouter);
 app.use('/leaderboard', leaderboardRouter);
 app.use('/profile', profileRouter);
 app.use('/admin', adminRouter);
+app.use('/forgotPassword', forgotPasswordRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -71,5 +73,6 @@ app.use(function(req, res, next) {
     res.status(err.status || 500);
     res.render('error');
   });
+
 
 module.exports = app;

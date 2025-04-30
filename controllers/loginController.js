@@ -9,25 +9,25 @@ const userLogin = (req, res) => {
 
     db.query(queries.login, [username], async (err, results) => {
         if (err || results.length === 0) {
-            return res.status(401).send('User not found.');
+            return res.render('login', { loginFailed: true, errorMessage: 'User not found.' });
         }
 
         const user = results[0];
 
         if (user.status !== 'Active') {
-            return res.status(403).send('Your account has been banned.');
-        }
+            return res.render('login', { loginFailed: true, errorMessage: 'Your account has been banned.' });
+        }    // not using send becuase we want it to actually go back to login when they have an incorrect login
 
         const isMatch = await bcrypt.compare(password, user.userPass);
         if (!isMatch) {
-            return res.status(401).send('Incorrect password.');
+            return res.render('login', { loginFailed: true, errorMessage: 'Incorrect password.' });
         }
 
         const dbRole = user.UserRole;
         console.log("Database role:", dbRole, "User selected:", userrole);
 
         if (dbRole.toLowerCase() !== userrole.toLowerCase()) {
-            return res.status(403).send('Role mismatch. Please login correctly.');
+            return res.render('login', { loginFailed: true, errorMessage: 'Role mismatch. Please login correctly.' });
         }
 
         req.session.user = {
@@ -43,6 +43,5 @@ const userLogin = (req, res) => {
         }
     });
 };
-
   
 module.exports = {userLogin}

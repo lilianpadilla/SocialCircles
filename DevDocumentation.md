@@ -109,4 +109,5 @@ Social Circles is a Node.js, Express.js, EJS, MySQL project for a web-based game
 6. miniLeaderboard function works, but its probably not written well
 7. Some of the gameController functionalities can be broken down, since there are multiple operations being performed. This would make it easier to test...
 8. Update endTime in our gameSessions table, we are not using it (we forgot about it) but it may be useful in the future
+9. **Password reseting** - error page when entering correct security code and reseting pw
 
