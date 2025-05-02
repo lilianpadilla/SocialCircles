@@ -92,3 +92,6 @@ INSERT INTO Characters (CharacterName, Personality, compliment, help, invite) VA
 
 -- ALTER TABLE Leaderboard
 -- ADD UNIQUE KEY unique_user (userID);
+
+ALTER TABLE Users
+ADD COLUMN securityCode VARCHAR(100);
