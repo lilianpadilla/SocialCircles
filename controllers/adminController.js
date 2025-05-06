@@ -27,8 +27,25 @@ const updateUserToAdmin = (req, res) => {
     });
 };
 
+const unbanUser = (req, res) => {
+    const { username } = req.body;
+    db.query(queries.unbanUser, [username], (err) => {
+        if (err) return res.status(500).send('Failed to unban user.');
+        res.redirect('/admin');
+    });
+};
+
+const demoteUser = (req, res) => {
+    const { username } = req.body;
+    db.query(queries.demoteUserFromAdmin, [username], (err) => {
+        if (err) return res.status(500).send('Failed to demote user.');
+        res.redirect('/admin');
+    });
+};
+
 module.exports = {
     banUser,
-    // resetScore,
-    updateUserToAdmin
+    updateUserToAdmin,
+    unbanUser,
+    demoteUser
 };

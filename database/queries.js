@@ -28,5 +28,7 @@ module.exports = {
             (SELECT COUNT(*) FROM GameSessions WHERE userID = ?) AS gamesPlayed,
             (SELECT AVG(score) FROM GameSessions WHERE userID = ?) AS averageScore,
             (SELECT created FROM Users WHERE userID = ?) AS joinDate
-    `
+    `,
+    unbanUser: `UPDATE Users SET status = 'Active' WHERE username = ?`,
+    demoteUserFromAdmin: `UPDATE Users SET UserRole = 'Account' WHERE username = ?`,
 };
