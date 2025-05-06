@@ -11,12 +11,15 @@ const {
   } = require('../controllers/adminController')
 
 
-router.get('/', (req, res) => 
-  res.render('admin'));
+//router.get('/', (req, res) => 
+//  res.render('admin'));
 
+router.get('/', isAuthenticated, (req, res) => res.render('admin'));
+router.post('/ban', isAuthenticated, banUser);
+router.post('/addAdmin', isAuthenticated, updateUserToAdmin);
 
-router.post('/ban', banUser);
-router.post('/addAdmin', updateUserToAdmin);
+// router.post('/ban', banUser);
+// router.post('/addAdmin', updateUserToAdmin);
 // router.post('/reset', resetScore); // did not end up using
 
 

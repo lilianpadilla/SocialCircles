@@ -12,5 +12,7 @@ const {isAuthenticated} = require('../middleware/authentication')
 //     res.render('profile', { title: 'Profile' });
 //   });
 
-router.get('/', getProfile)
+router.get('/', isAuthenticated, getProfile);
+// router.get('/', getProfile)
+
 module.exports = router;
