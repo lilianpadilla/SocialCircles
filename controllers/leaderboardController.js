@@ -25,8 +25,13 @@ const getLeaderboard = ((req, res, next) => { // we have a request from the user
           icon // placeholder medals
         };
       });
+
+      //router to determine where the leaderboard page was accessed from
+      const from = req.query.from;     
+      const backLabel = from === 'game' ? 'Back to Game' : 'Back to Home';
+      const backHref  = from === 'game' ?  '/game'        : '/';
   
-      res.render('leaderboard', { leaderboard });
+      res.render('leaderboard', { leaderboard, backLabel, backHref });
     });
   });
 

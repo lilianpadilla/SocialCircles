@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     leaderboard.addEventListener("click", () => {
-      window.location.href = "/leaderboard";
+      window.location.href = '/leaderboard?from=game';
       console.log('leaderboard button was clicked');
     });
     
