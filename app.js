@@ -80,20 +80,16 @@ app.use(function(req, res, next) {
 module.exports = app;
 
 
-const port = 3000;  // You can change the port if needed
+const port = 3000;
 
-// Set EJS as the templating engine
 app.set('view engine', 'ejs');
 
-// Serve static files (like CSS, JS, images) from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route to render the index.ejs file
 app.get('/', (req, res) => {
-  res.render('index');  // Make sure 'index.ejs' is in the 'views' folder
+  res.render('index');
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
