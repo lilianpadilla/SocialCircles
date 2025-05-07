@@ -5,9 +5,9 @@ const db = require('../database/connection');
 const queries = require('../database/queries');
 
 function isAuthenticated(req, res, next) {
-    res.set('Cache-Control', 'no-store');
-    res.set('Pragma', 'no-cache');
-    res.set('Expires', '0');
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
 
     if (req.session && req.session.user) {
         return next();

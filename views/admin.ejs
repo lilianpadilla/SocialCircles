@@ -30,6 +30,17 @@
                     <input type="text" name="username" placeholder="Username to ban" required>
                     <button type="submit" class="ban-btn">Ban User</button>
                 </form>
+                <!-- Unban User Form -->
+                <form action="/admin/unban" method="POST" class="admin-form">
+                    <input type="text" name="username" placeholder="Username to unban" required>
+                    <button type="submit" class="unban-btn">Unban User</button>
+                </form>
+
+                <!-- Demote Admin Form -->
+                <form action="/admin/demote" method="POST" class="admin-form">
+                    <input type="text" name="username" placeholder="Admin to demote" required>
+                    <button type="submit" class="demote-btn">Demote to Account</button>
+                </form>
 
                 <!-- Reset User Score Form -->
                 <!-- <form action="/admin/reset" method="POST" class="admin-form">

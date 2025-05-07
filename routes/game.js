@@ -11,9 +11,13 @@ const {
   saveGame,
 } = require('../controllers/gameController');
 
-router.get('/', getCharacters)
-router.post('/action',updateScore)
-router.post('/exit',saveGame)
+router.get('/', isAuthenticated, getCharacters);
+router.post('/action', isAuthenticated, updateScore);
+router.post('/exit', isAuthenticated, saveGame);
+
+// router.get('/', getCharacters)
+// router.post('/action',updateScore)
+// router.post('/exit',saveGame)
 
 //attempt at caching
 
