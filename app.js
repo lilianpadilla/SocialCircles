@@ -59,11 +59,16 @@ app.use('/admin', adminRouter);
 app.use('/forgotPassword', forgotPasswordRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    // next(createError(404));
-    res.status(404).render('errors/404'); 
-    res.status(500).render('errors/500'); 
-  });
+app.use((req, res, next) => {
+  res.status(404).render('errors/404');
+});
+// Error‑handling middleware 
+app.use((err, req, res, next) => {
+  console.error(err);                       
+  res
+    .status(err.status || 500)
+    .render('errors/500', { error: err }); 
+});
   
   // error handler
   // app.use(function(err, req, res, next) {
