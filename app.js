@@ -66,13 +66,34 @@ app.use(function(req, res, next) {
   // error handler
   app.use(function(err, req, res, next) {
     // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // res.locals.message = err.message;
+    // res.locals.error = req.app.get('env') === 'development' ? err : {};
   
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
+    // // render the error page
+    // res.status(err.status || 500);
+    // res.render('error');
+    res.status(404).render('errors/404'); 
+    res.status(500).render('errors/500'); 
   });
 
 
 module.exports = app;
+
+
+const port = 3000;  // You can change the port if needed
+
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
+
+// Serve static files (like CSS, JS, images) from the 'public' folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Route to render the index.ejs file
+app.get('/', (req, res) => {
+  res.render('index');  // Make sure 'index.ejs' is in the 'views' folder
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
