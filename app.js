@@ -80,16 +80,16 @@ app.use(function(req, res, next) {
 module.exports = app;
 
 
-const port = 3000;
+// const port = 3000;
 
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
+// app.get('/', (req, res) => {
+//   res.render('index');
+// });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server is running on http://localhost:${port}`);
+// });
