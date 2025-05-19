@@ -1,5 +1,7 @@
 # Social Circles
 A semester long project for Trinity University's Software Engineering Course.
+Social Circles is a Node.js, Express.js, EJS, MySQL project for a web-based game that allows users to interact with character groups. Our web game allows both user and admin controls.
+
 
 ## Overview
 Social Circles is a free online game where users can exercise their emotional intelligence in a fun, colorful and competitive environment. The goal is to not only maximize a social group's happiness through intuition and quick decision-making, but to maximize your total score. 
