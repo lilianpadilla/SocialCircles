@@ -23,9 +23,35 @@ Choose wisely, and **have fun!**
 ## Installation & Setup
 1. Clone the repository:
    ```sh
-   git clone placeholder
-   cd placeholder
+   https://github.com/lilianpadilla/SocialCircles.git
+   cd SocialCircles
    ```
+2. Ensure you install dependencies
+    ```
+    npm install
+    ```
+
+3. On workbench, set up local DB by changing the connection to your credentials and running v2SocialCircles.sql in the database folder
+ - You will need to create your own .env file in the root directory, so run
+    ```
+    npm install dotenv
+    ```
+    and add this template to .env with you DB credentials
+    ```
+    DB_HOST=yourhost
+    DB_USER=youruser
+    DB_PASSWORD=yourpassword
+    DB_NAME=v2SocialCircles
+    ```
+
+4. To start the app, run
+    ``` 
+    npm start
+     ```
+     To test, run
+    ```
+     npm test
+     ```
 
 ## Collaborators
 This project is a collaboration between Shea Bedminster, Lilian Padilla, and Aliya Noe.
