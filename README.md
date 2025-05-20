@@ -25,7 +25,7 @@ Choose wisely, and **have fun!**
 ## Installation & Setup
 1. Clone the repository:
    ```sh
-   https://github.com/lilianpadilla/SocialCircles.git
+   git clone https://github.com/lilianpadilla/SocialCircles.git
    cd SocialCircles
    ```
 2. Ensure you install dependencies
