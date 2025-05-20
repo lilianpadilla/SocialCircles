@@ -38,7 +38,7 @@ Choose wisely, and **have fun!**
     ```
     npm install dotenv
     ```
-    and add this template to .env with you DB credentials
+    and add this template to .env with your DB credentials
     ```
     DB_HOST=yourhost
     DB_USER=youruser
@@ -46,7 +46,7 @@ Choose wisely, and **have fun!**
     DB_NAME=v2SocialCircles
     ```
 
-4. To start the app, run
+4. To start the app, run this command, then go to localhost:3000 on your browser
     ``` 
     npm start
      ```
